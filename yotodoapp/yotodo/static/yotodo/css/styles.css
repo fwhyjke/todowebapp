@@ -12,6 +12,11 @@ body {
     backdrop-filter: blur(100px);
 }
 
+#logout-link:hover {
+    color: #941600;
+}
+
+
 .gradient-button {
   background: linear-gradient(90deg, #FF5E5B 0%, #FF9966 100%);
   border-radius: 25px;
@@ -29,6 +34,7 @@ body {
   background-color: #FF5E5B;
   opacity: 1;
   transform: scale(1.025);
+  transition: transform 0.3s ease;
 }
 
 
@@ -232,3 +238,12 @@ input[type="checkbox"] {
 .red-circle::before {
     background: #F22613;
 }
+
+
+$('.accordion .card').on('show.bs.collapse', function () {
+  var $body = $(this).find('.accordion-body');
+  var $tmp = $body.clone().css('visibility', 'hidden').appendTo('body');
+  var height = $tmp.height();
+  $tmp.remove();
+  $body.css('max-height', height + 'px');
+});
