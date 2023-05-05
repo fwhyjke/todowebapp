@@ -1,0 +1,234 @@
+html {
+    height: 100vh;
+}
+
+body {
+    font-family: 'Ubuntu', sans-serif;
+    background: linear-gradient(rgba(55, 55, 0, 0.4), #FFCA90 60%) no-repeat;
+    background-size: cover;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+    backdrop-filter: blur(100px);
+}
+
+.gradient-button {
+  background: linear-gradient(90deg, #FF5E5B 0%, #FF9966 100%);
+  border-radius: 25px;
+  padding: 10px 20px;
+  color: white;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  box-shadow: 0px 0px 0px 0.6px #fff;
+  opacity: 0.75;
+}
+
+.gradient-button:hover {
+  background-color: #FF5E5B;
+  opacity: 1;
+  transform: scale(1.025);
+}
+
+
+.container-go {
+  opacity: 0; /* начальная прозрачность контейнера */
+  animation: fadeIn 5s ease-in-out forwards; /* запуск анимации появления */
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px); /* начальная позиция контейнера (выше на 10 пикселей) */
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0); /* конечная позиция контейнера (обычное положение) */
+  }
+}
+
+
+.navbar {
+  background-color: rgba(255, 165, 0, 0.1); /* оранжевый цвет с прозрачностью 80% */
+  background-image: linear-gradient(to bottom, #FFA500, #FF8C00); /* линейный градиент оттенков оранжевого */
+}
+
+.navbar-brand {
+  color: white;
+  transition: color 0.25s ease;
+}
+
+.navbar-brand:hover {
+  color: gray;
+}
+
+.main-container {
+    width: 500px;
+    margin: 0 auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+.pokemon-top-part {
+    width: 200px;
+    height: 100px;
+    background: #F22613;
+    margin: 0 auto;
+    border-radius: 200px 200px 0 0;
+    border: 5px solid #333;
+}
+
+.pokemon-bottom-part {
+    position: relative;
+}
+
+.white-part {
+    width: 200px;
+    height: 100px;
+    background: #ffffff;
+    margin: 0 auto;
+    border-radius: 0 0 200px 200px;
+    border: 5px solid #333;
+}
+
+.black-line {
+    width: 210px;
+    height: 25px;
+    background: #333;
+    margin: 0 auto;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+.black-line::after {
+    content: '';
+    width: 50px;
+    height: 50px;
+    background: #333;
+    border-radius: 50%;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%,-25%);
+}
+
+.black-line::before {
+    content: '';
+    width: 30px;
+    height: 30px;
+    background: #fff;
+    border-radius: 50%;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%,-2px);
+    z-index: 999;
+}
+
+.signup-form {
+    background: url("") no-repeat;
+    background-size: cover;
+    border-radius: 10px;
+}
+
+.sign-back {
+    background: linear-gradient(rgba(255, 202, 0, 0.8), #f27474 100%);
+    border-radius: 10px;
+    padding: 65px 0;
+}
+
+.sign-back h1 {
+    text-transform: uppercase;
+    text-align: center;
+    color: #fff;
+    margin-top: 0;
+    letter-spacing: 5px;
+    text-shadow:1px 1px 1px #333
+}
+
+.signup-row {
+    text-align: center;
+    margin: 20px 0;
+    position: relative;
+}
+
+.signup-row input {
+    padding: 5px 0;
+    border: 0;
+    border-bottom: 1px solid #fff;
+    background: transparent;
+    width: 50%;
+    text-align: center;
+    outline: none;
+    color: #fff;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+.signup-row input::-webkit-input-placeholder {
+    color: #fff;
+  text-shadow:1px 1px 1px rgba(51, 51, 51, 0.6)
+}
+
+.signup-row i {
+    color: #fff;
+    position: relative;
+    left: 20px;
+    text-shadow:1px 1px 1px rgba(51, 51, 51, 0.6)
+}
+
+.signup-row a {
+    font-size: 40px;
+    text-decoration: none;
+}
+
+.signup-row a i {
+    left: 0;
+}
+
+.form-bottom {
+    display: flex;
+    justify-content: center;
+}
+
+.remember:not(:last-child) {
+    margin-right: 30px;
+    color: #ffe229;
+}
+.remember:not(:last-child):hover {
+    margin-right: 30px;
+    color: #fff;
+      transition:all 500ms;
+
+}
+
+.remember a {
+    text-decoration: none;
+    color: #ffe229;
+    transition:all 500ms;
+}
+.remember a:hover {
+    text-decoration: none;
+    color: #fff;
+}
+
+input[type="checkbox"] {
+    position: relative;
+    top: 1px;
+    transition:all 500ms;
+
+}
+
+.main-forms {
+    overflow: hidden;
+    display: none;
+    position: relative;
+}
+
+.red-circle::before {
+    background: #F22613;
+}

@@ -1,0 +1,28 @@
+{% extends 'yotodo/base.html' %}
+{% load static %}
+
+{% block content %}
+        <div class="container container-go">
+          <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+              <span style="font-size: 24px;">YoToDo</span>
+            </div>
+              <div class="container-fluid">
+              <a style="font-size: 30px;" class="navbar-brand ms-auto me-auto">Добро пожаловать!</a>
+            </div>
+              <div class="container-fluid">
+              <a class="navbar-brand ms-auto" href="https://t.me/fwhyjke">Контакт</a>
+            </div>
+          </nav>
+        </div>
+
+      <div class="container mx-auto text-center">
+        <h1>Твой личный задачник</h1>
+        <p>Захотел начать систематизировать задачи, чтобы выполнять больше? Тогда тебе точно к нам!</p>
+        <button type="button" class="btn btn-light" onclick="window.location.href='{% url 'main' %}'">ВПЕРЕД!</button>
+        <br></br>
+        <a href="https://t.me/fwhyjke">created by <i>fwhyjke</i></a>
+      </div>
+    </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,64 @@
+{% extends 'yotodo/base.html' %}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block header %}
+{% endblock %}
+
+{% block content %}
+        <div class="container">
+          <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+              <span style="font-size: 24px;">YoToDo</span>
+            </div>
+              <div class="container-fluid">
+              <a class="navbar-brand ms-auto me-auto" href="{% url 'welcome' %}">На главную</a>
+            </div>
+              <div class="container-fluid">
+              <a class="navbar-brand ms-auto" href="https://t.me/fwhyjke">Контакт</a>
+            </div>
+          </nav>
+        </div>
+<div class="container">
+    <div class="d-flex justify-content-center align-items-center max-w-md">
+        <form action="{% url 'main' %}" method="post">
+            {% csrf_token %}
+            <input type="hidden" name="user" value="{{ user.id }}">
+            <div class="mb-3">
+                <label class="form-label" for="{{ form.title.id_for_label }}">{{ form.title.label }}: </label>
+                {{ form.title|add_class:"form-control" }}
+            </div>
+            <div class="form-error">{{ form.title.errors }}</div>
+
+            <div class="mb-3">
+                <label class="form-label" for="{{ form.description.id_for_label }}">{{ form.description.label }}: </label>
+                {{ form.description|add_class:"form-control" }}
+            </div>
+            <div class="form-error">{{ form.description.errors }}</div>
+
+            <button class="gradient-button" type="submit">Добавить задачу</button>
+        </form>
+    </div>
+
+    <div class="accordion justify-content-center align-items-center max-w-md">
+        {% for task in tasks %}
+            <div class="accordion-header">Задача: {{ task.title }}</div>
+            <div class="accordion-body question-input">
+                <p>{{ task.description }}</p>
+                <div class="status">Задача добавлена: {{ task.created_at.date }}</div>
+                <form method="post" action="{% url 'complete_task' task.pk %}">
+                    {% csrf_token %}
+                    <button type="submit" class="done-button btn btn-success">Я закончил эту задачу!</button>
+                </form>
+            </div>
+        {% endfor %}
+    </div>
+
+    <div class="d-flex justify-content-center align-items-center max-w-md">
+        {{ user.username }}
+        <a href="{% url 'logout' %}">Выйти</a>
+    </div>
+</div>
+
+<script type="text/javascript" src="{% static 'yotodo/js/acc.js' %}"></script>
+{% endblock %}
