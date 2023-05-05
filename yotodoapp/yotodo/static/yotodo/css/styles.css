@@ -12,6 +12,14 @@ body {
     backdrop-filter: blur(100px);
 }
 
+@media (min-width: 1200px) {
+    .container{
+        max-width: 950px;
+         margin: 0 auto;
+  max-height: 100%;
+    }
+}
+
 #logout-link:hover {
     color: #941600;
 }
@@ -22,7 +30,31 @@ body {
   float: right;
 }
 
+.done-button {
+  background-color: white;
+  color: #50c878;
+  border: 1px solid #50c878;
+}
+
+.done-button:hover {
+  background-color: #50c878;
+  color: white;
+  border: 1px solid #1e5831;
+}
+
+.bottom-link {
+  color: rgba(0, 0, 0, 0.5);
+  text-decoration: none;
+  display: block;
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
 .gradient-button {
+  display: block;
+  margin: 0 auto;
   background: linear-gradient(90deg, #FF5E5B 0%, #FF9966 100%);
   border-radius: 25px;
   padding: 10px 20px;
@@ -41,6 +73,44 @@ body {
   transform: scale(1.025);
   transition: transform 0.3s ease;
 }
+
+.gradient-button-wel {
+  display: inline-block;
+  padding: 12px 30px;
+  border-radius: 50px;
+  font-size: 18px;
+  color: #fff;
+  background-image: linear-gradient(to right, #4ECDC4, #FF6B6B, #FFE66D);
+  box-shadow: 0 3px 10px rgba(0,0,0,0.3);
+  border: none;
+  outline: none;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+}
+
+.gradient-button-wel:hover {
+  transform: scale(1.1);
+}
+
+.glow-on-hover {
+  position: relative;
+  animation: glow-on-hover 1s ease-in-out infinite;
+}
+
+@keyframes glow-on-hover {
+  0% {
+    box-shadow: 0 0 0 0 rgba(78, 205, 196, 0.7);
+  }
+
+  50% {
+    box-shadow: 0 0 40px 20px rgba(78, 205, 196, 0);
+  }
+
+  100% {
+    box-shadow: 0 0 0 0 rgba(78, 205, 196, 0);
+  }
+}
+
 
 
 .container-go {
@@ -62,7 +132,8 @@ body {
 
 .navbar {
   background-color: rgba(255, 165, 0, 0.1); /* оранжевый цвет с прозрачностью 80% */
-  background-image: linear-gradient(to bottom, #FFA500, #FF8C00); /* линейный градиент оттенков оранжевого */
+  background-image: linear-gradient(to bottom, #FF8C00, rgba(212, 170, 44, 0.65)); /* линейный градиент оттенков оранжевого */
+  border-radius: 0 0 1rem 1rem;
 }
 
 .navbar-brand {
