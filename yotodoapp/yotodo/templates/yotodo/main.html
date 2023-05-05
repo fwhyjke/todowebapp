@@ -42,14 +42,16 @@
 
     <div class="accordion justify-content-center align-items-center max-w-md">
         {% for task in tasks %}
-            <div class="accordion-header">Задача: {{ task.title }}</div>
-            <div class="accordion-body question-input">
-                <p>{{ task.description }}</p>
-                <div class="status">Задача добавлена: {{ task.created_at.date }}</div>
-                <form method="post" action="{% url 'complete_task' task.pk %}">
-                    {% csrf_token %}
-                    <button type="submit" class="done-button btn btn-success">Я закончил эту задачу!</button>
-                </form>
+            <div class="card mb-3">
+                <div class="card-header accordion-header">Задача: {{ task.title }}</div>
+                <div class="card-body accordion-body question-input">
+                    <p>{{ task.description }}</p>
+                    <div class="status">Задача добавлена: {{ task.created_at.date }}</div>
+                    <form method="post" action="{% url 'complete_task' task.pk %}">
+                        {% csrf_token %}
+                        <button type="submit" class="done-button btn btn-success">Я закончил эту задачу!</button>
+                    </form>
+                </div>
             </div>
         {% endfor %}
     </div>
