@@ -40,23 +40,33 @@
         </form>
     </div>
 
-    <div class="accordion justify-content-center align-items-center max-w-md">
-        {% for task in tasks %}
-            <div class="card mb-3">
-                <div class="card-header accordion-header">Задача: {{ task.title }}</div>
-                <div class="card-body accordion-body">
-                    <p>{{ task.description }}</p>
-                    <div class="d-flex justify-content-between align-items-center">
-                        <div class="status">Задача добавлена: {{ task.created_at.date }}</div>
-                        <form method="post" action="{% url 'complete_task' task.pk %}">
-                            {% csrf_token %}
-                            <button type="submit" class="done-button btn btn-success ml-auto">Я закончил эту задачу!</button>
-                        </form>
-                    </div>
-                </div>
+<div class="accordion justify-content-center align-items-center max-w-md">
+  {% for task in tasks %}
+    <div class="card mb-3">
+        <div class="card-header accordion-header d-flex justify-content-between align-items-center">
+            Задача: {{ task.title }}
+            <span class="arrow-down"></span>
+        </div>
+        <div class="card-body accordion-body question-input">
+            <p>{{ task.description }}</p>
+            <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center">
+                <div class="status mb-3 mb-md-0">Задача добавлена: {{ task.created_at.date }}</div>
+                <form method="post" action="{% url 'complete_task' task.pk %}">
+                    {% csrf_token %}
+                    <button type="submit" class="done-button btn btn-success">Я закончил эту задачу!</button>
+                </form>
             </div>
-        {% endfor %}
+        </div>
     </div>
+  {% endfor %}
+</div>
+
+<style>
+.accordion-header::after {
+  content: "\2193";
+  float: right;
+}
+</style>
 
 
 </div>

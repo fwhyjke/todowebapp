@@ -16,6 +16,11 @@ body {
     color: #941600;
 }
 
+.accordion-header::after {
+  content: "\2193";
+  font-size: 1.6em;
+  float: right;
+}
 
 .gradient-button {
   background: linear-gradient(90deg, #FF5E5B 0%, #FF9966 100%);
