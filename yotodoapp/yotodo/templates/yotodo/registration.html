@@ -1,5 +1,6 @@
 {% extends 'yotodo/base.html' %}
 {% load static %}
+{% load widget_tweaks %}
 {% block header %}
 <script src="{% static 'yotodo/js/reglog.js' %}"></script>
 {% endblock %}
@@ -29,34 +30,34 @@
                         <h1>Регистрация</h1>
                         <div class="signup-row">
                             <i class="fa fa-user"></i>
-                            <label class="form-label" for="{{ form.username.id_for_label }}"></label>{{ form.username }}
+                            <label class="form-label" for="{{ form.username.id_for_label }}"></label>{{ form.username|attr:"placeholder:Придумайте логин" }}
                             <div class="signup-row">
                                 {{ form.username.errors }}
                             </div>
                         </div>
                         <div class="signup-row">
                             <i class="fa fa-envelope-o"></i>
-                            <label class="form-label" for="{{ form.email.id_for_label }}"></label>{{ form.email }}
+                            <label class="form-label" for="{{ form.email.id_for_label }}"></label>{{ form.email|attr:"placeholder:Ваш email" }}
                             <div class="signup-row">
                                 {{ form.email.errors }}
                             </div>
                         </div>
                         <div class="signup-row">
                             <i class="fa fa-key"></i>
-                            <label class="form-label" for="{{ form.password1.id_for_label }}"></label>{{ form.password1 }}
+                            <label class="form-label" for="{{ form.password1.id_for_label }}"></label>{{ form.password1|attr:"placeholder:Пароль" }}
                             <div class="signup-row">
                                 {{ form.password1.errors }}
                             </div>
                         </div>
                         <div class="signup-row">
                             <i class="fa fa-key"></i>
-                            <label class="form-label" for="{{ form.password2.id_for_label }}"></label>{{ form.password2 }}
+                            <label class="form-label" for="{{ form.password2.id_for_label }}"></label>{{ form.password2|attr:"placeholder:Повторите пароль" }}
                             <div class="signup-row">
                                 {{ form.password2.errors }}
                             </div>
                         </div>
                         <div class="signup-row">
-                            <button type="submit" class="fa fa-arrow-circle-o-right" aria-hidden="true">
+                            <button type="submit" aria-hidden="true">Зарегистрироваться</button>
                             </button>
                         </div>
                         <div class="form-bottom">

@@ -29,10 +29,5 @@ $(document).ready(function(){
         .staggerFrom(row,1,{left:"-100%",autoAlpha:0},0.1)
         .staggerFrom(rem,1,{cycle:{y:[20,-20]},autoAlpha:0},0.1)
 
-
-
 }
-
-
-
 })

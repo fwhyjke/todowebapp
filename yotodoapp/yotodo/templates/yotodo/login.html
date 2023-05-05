@@ -1,5 +1,6 @@
 {% extends 'yotodo/base.html' %}
 {% load static %}
+{% load widget_tweaks %}
 {% block header %}
 <script src="{% static 'yotodo/js/script.js' %}"></script>
 {% endblock %}
@@ -31,17 +32,16 @@
                         </div>
                         <div class="signup-row">
                             <i class="fa fa-user"></i>
-                            <label class="form-label" for="{{ form.username.id_for_label }}"></label>{{ form.username }}
+                            <label class="form-label" for="{{ form.username.id_for_label }}"></label>{{ form.username|attr:"placeholder:Логин" }}
                             {{ form.username.errors }}
                         </div>
                         <div class="signup-row">
                             <i class="fa fa-key"></i>
-                            <label class="form-label" for="{{ form.password.id_for_label }}"></label>{{ form.password }}
+                            <label class="form-label" for="{{ form.password.id_for_label }}"></label>{{ form.password|attr:"placeholder:Пароль" }}
                             {{ form.password.errors }}
                         </div>
                         <div class="signup-row">
-                            <button type="submit" class="fa fa-arrow-circle-o-right" aria-hidden="true">
-                            </button>
+                            <button type="submit" aria-hidden="true">Войти</button>
                         </div>
                         <div class="form-bottom">
                             <div class="remember">
