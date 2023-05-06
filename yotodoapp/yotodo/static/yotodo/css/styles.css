@@ -2,9 +2,13 @@ html {
     height: 100vh;
 }
 
+
+
 body {
     font-family: 'Ubuntu', sans-serif;
-    background: linear-gradient(rgba(55, 55, 0, 0.4), #FFCA90 60%) no-repeat;
+    background-color: #FFD87E;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 800 400'%3E%3Cdefs%3E%3CradialGradient id='a' cx='396' cy='281' r='514' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%23DF2296'/%3E%3Cstop offset='1' stop-color='%23FFD87E'/%3E%3C/radialGradient%3E%3ClinearGradient id='b' gradientUnits='userSpaceOnUse' x1='400' y1='148' x2='400' y2='333'%3E%3Cstop offset='0' stop-color='%23FFE632' stop-opacity='0'/%3E%3Cstop offset='1' stop-color='%23FFE632' stop-opacity='0.5'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill='url(%23a)' width='800' height='400'/%3E%3Cg fill-opacity='0.4'%3E%3Ccircle fill='url(%23b)' cx='267.5' cy='61' r='300'/%3E%3Ccircle fill='url(%23b)' cx='532.5' cy='61' r='300'/%3E%3Ccircle fill='url(%23b)' cx='400' cy='30' r='300'/%3E%3C/g%3E%3C/svg%3E");
+    background-attachment: fixed;
     background-size: cover;
     height: 100vh;
     margin: 0;
@@ -22,6 +26,11 @@ body {
 
 #logout-link:hover {
     color: #941600;
+}
+
+.black-nigga {
+  color: white;
+  text-decoration: none;
 }
 
 .accordion-header::after {
@@ -131,9 +140,10 @@ body {
 
 
 .navbar {
-  background-color: rgba(255, 165, 0, 0.1); /* оранжевый цвет с прозрачностью 80% */
-  background-image: linear-gradient(to bottom, #FF8C00, rgba(212, 170, 44, 0.65)); /* линейный градиент оттенков оранжевого */
+    background: rgb(252,70,107);
+    background: radial-gradient(circle, rgba(252,70,107,0.9) 0%, rgba(252,176,69,0.9416141456582633) 50%, rgba(252,70,107,0.9) 100%);
   border-radius: 0 0 1rem 1rem;
+  opacity: 0.7;
 }
 
 .navbar-brand {
