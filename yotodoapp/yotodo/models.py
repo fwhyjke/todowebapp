@@ -9,6 +9,7 @@ class ToDoIt(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     user = IntegerField()
     title = CharField(max_length=40, verbose_name='Задача')
+    lvl = IntegerField(verbose_name='Уровень')
     description = TextField(blank=True, verbose_name='Описание')
     status = BooleanField(default=False)
 

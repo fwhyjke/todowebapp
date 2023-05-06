@@ -9,7 +9,7 @@ class AddToDoIt(forms.ModelForm):
 
     class Meta:
         model = ToDoIt
-        fields = ['user', 'title', 'description']
+        fields = ['user', 'lvl', 'title', 'description']
         widgets = {'user': forms.HiddenInput()}
 
     def __init__(self, *args, **kwargs):
