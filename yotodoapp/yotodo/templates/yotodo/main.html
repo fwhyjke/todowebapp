@@ -33,6 +33,7 @@
                   {{ form.title|add_class:"form-control"|attr:"placeholder:Введите текст задачи" }}
               </div>
               <div class="form-error">{{ form.title.errors }}</div>
+
               <label class="form-label">Уровень важности:</label>
               <div class="mb-3">
                   <div class="form-check">
@@ -49,6 +50,20 @@
                   </div>
               </div>
               <div class="form-error">{{ form.lvl.errors }}</div>
+
+              <label class="form-label">Закрепить задачу?</label>
+              <div class="mb-3">
+                  <div class="form-check">
+                      <input class="form-check-input" type="radio" name="isfixed" id="yes" value="1">
+                      <label class="form-check-label" for="yes">Да</label>
+                  </div>
+                  <div class="form-check">
+                      <input class="form-check-input" type="radio" name="isfixed" id="no" value="0">
+                      <label class="form-check-label" for="no">Нет</label>
+                  </div>
+              </div>
+              <div class="form-error">{{ form.isfixed.errors }}</div>
+
               <div class="mb-3">
                   <label class="form-label" for="{{ form.description.id_for_label }}">{{ form.description.label }} (опционально): </label>
                   {{ form.description|add_class:"form-control"|attr:"placeholder:Опишите поставленную задачу" }}
@@ -58,12 +73,15 @@
           </form>
       </div>
     </div>
+
     <div class="col-md-4">
       <div class="container">
         <div class="mx-auto">
             <div class="justify-content-center align-items-center max-w-md">
                 <p>Ваши задачи:</p>
+
                 {% for task in tasks %}
+                {% if task.isfixed == True %}
                   <div class="card mb-3">
                       <div class="card-header accordion-header d-flex justify-content-between align-items-center">
                           Задача: {{ task.title }}
@@ -74,23 +92,76 @@
                           {% else %}
                               <div class="lvl-gre">Низкая важность</div>
                           {% endif %}
+
+                          {% if task.isfixed == 1 %}
+                          <form method="post" action="{% url 'unfixed_task' task.pk %}">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-success">Открепить</button>
+                          </form>
+                          {% else %}
+                          <form method="post" action="{% url 'fixed_task' task.pk %}">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-secondary">Закрепить</button>
+                          </form>
+                          {% endif %}
                           <span class="arrow-down"></span>
                       </div>
                       <div class="card-body accordion-body question-input">
-                    <p>{{ task.description }}</p>
-                    <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center">
-                        <div class="status mb-3 mb-md-0">Задача добавлена: {{ task.created_at.date }}</div>
-                        <form method="post" action="{% url 'complete_task' task.pk %}">
+                          <p>{{ task.description }}</p>
+                          <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center">
+                              <div class="status mb-3 mb-md-0">Задача добавлена: {{ task.created_at.date }}</div>
+                              <form method="post" action="{% url 'complete_task' task.pk %}">
+                                  {% csrf_token %}
+                                  <button type="submit" class="done-button btn btn-success">Я закончил эту задачу!</button>
+                              </form>
+                          </div>
+                      </div>
+                  </div>
+                {% endif %}
+                {% endfor %}
+
+                {% for task in tasks %}
+                {% if task.isfixed == False %}
+                  <div class="card mb-3">
+                      <div class="card-header accordion-header d-flex justify-content-between align-items-center">
+                          Задача: {{ task.title }}
+                          {% if task.lvl == 1 %}
+                              <div class="lvl-red">Высокая важность</div>
+                          {% elif task.lvl == 2 %}
+                              <div class="lvl-yel">Средняя важность</div>
+                          {% else %}
+                              <div class="lvl-gre">Низкая важность</div>
+                          {% endif %}
+
+                          {% if task.isfixed == 1 %}
+                          <form method="post" action="{% url 'unfixed_task' task.pk %}">
                             {% csrf_token %}
-                            <button type="submit" class="done-button btn btn-success">Я закончил эту задачу!</button>
-                        </form>
-                    </div>
-                </div>
+                            <button type="submit" class="btn btn-success">Открепить</button>
+                          </form>
+                          {% else %}
+                          <form method="post" action="{% url 'fixed_task' task.pk %}">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-secondary">Закрепить</button>
+                          </form>
+                          {% endif %}
+                          <span class="arrow-down"></span>
+                      </div>
+                      <div class="card-body accordion-body question-input">
+                          <p>{{ task.description }}</p>
+                          <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center">
+                              <div class="status mb-3 mb-md-0">Задача добавлена: {{ task.created_at.date }}</div>
+                              <form method="post" action="{% url 'complete_task' task.pk %}">
+                                  {% csrf_token %}
+                                  <button type="submit" class="done-button btn btn-success">Я закончил эту задачу!</button>
+                              </form>
+                          </div>
+                      </div>
+                  </div>
+                {% endif %}
+                {% endfor %}
             </div>
-          {% endfor %}
+        </div>
       </div>
-  </div>
-</div>
     </div>
   </div>
 </div>

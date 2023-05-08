@@ -8,4 +8,6 @@ urlpatterns = [
     path('logout', logout_user, name='logout'),
     path('', MainPage.as_view(), name='main'),
     path('complete_task/<int:pk>/', CompleteTaskView.as_view(), name='complete_task'),
+    path('fixed_task/<int:pk>/', FixedTaskView.as_view(), name='fixed_task'),
+    path('unfixed_task/<int:pk>/', UnFixedTaskView.as_view(), name='unfixed_task'),
 ]

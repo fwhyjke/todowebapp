@@ -37,7 +37,7 @@
                         </div>
                         <div class="signup-row">
                             <i class="fa fa-key"></i>
-                            <label class="form-label" for="{{ form.password.id_for_label }}"></label>{{ form.password|attr:"placeholder:Пароль" }}
+                            <label class="form-label" for="{{ form.password.id_for_label }}"></label>{{ form.password|attr:"placeholder:Пароль"|attr:"type:password" }}
                             {{ form.password.errors }}
                         </div>
                         <div class="signup-row">
