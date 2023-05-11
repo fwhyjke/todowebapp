@@ -38,9 +38,41 @@ body {
     color: #941600;
 }
 
+.marright {
+  margin-right: 10px;
+}
+
+.center-div {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
 .black-nigga {
   color: white;
   text-decoration: none;
+}
+
+.btn-main {
+  display: inline-block;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  padding: 12px 24px;
+  border-radius: 50px;
+  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+
+.btn-main-rounded {
+  background-color: #007bff;
+  color: #fff;
+}
+
+.btn-main-rounded:hover {
+  background-color: #0062cc;
+  color: #fff;
 }
 
 .accordion-header::after {

@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block content %}
-<div class="container container-go">
+<div class="container animate__animated animate__fadeIn animate__delay-1s">
   <nav class="navbar navbar-expand-lg navbar-light">
     <div class="container-fluid">
       <span style="font-size: 24px;">YoToDo</span>
@@ -19,13 +19,17 @@
   <div class="d-flex justify-content-center align-items-center vh-100">
     <div class="container">
       <div class="mx-auto text-center">
-        <h1>Твой личный задачник</h1>
-        <p>Захотел начать систематизировать задачи, чтобы выполнять больше? Тогда тебе точно к нам!</p>
-        <button type="button" class="gradient-button-wel glow-on-hover" onclick="window.location.href='{% url 'main' %}'">ВПЕРЕД!</button>
+        <div class="animate__animated animate__backInLeft animate__delay-1s">
+          <h1 style="font-size: 48px;">Твой личный задачник</h1>
+          <p style="font-size: 22px;">Захотел начать систематизировать задачи?<br>Хочешь успевать выполнять больше?<br>Тогда тебе точно к нам!</p>
+        </div>
+        <div class="animate__animated animate__jackInTheBox animate__delay-2s">
+          <button type="button" class="gradient-button-wel glow-on-hover" onclick="window.location.href='{% url 'main' %}'">ВПЕРЕД!</button>
+        </div>
       </div>
     </div>
   </div>
-<div class="mx-auto text-center position-absolute bottom-0 w-100">
+<div class="mx-auto text-center position-absolute bottom-0 w-100 animate__animated animate__backInUp animate__delay-1s">
     <a class="bottom-link" href="https://t.me/fwhyjke">created by <i>fwhyjke</i></a>
 </div>
 {% endblock %}

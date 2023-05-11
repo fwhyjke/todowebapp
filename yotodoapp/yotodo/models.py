@@ -1,3 +1,4 @@
+from django.utils import timezone
 from django.db import models
 from django.db.models import *
 from django.urls import reverse
@@ -13,6 +14,7 @@ class ToDoIt(models.Model):
     description = TextField(blank=True, verbose_name='Описание')
     status = BooleanField(default=False)
     isfixed = BooleanField()
+    end_at = models.DateTimeField(default=timezone.now)
 
     def __str__(self):
         return f'User {self.user}, task "{self.title}"'

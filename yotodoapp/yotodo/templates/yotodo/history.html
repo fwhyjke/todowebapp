@@ -1,0 +1,76 @@
+{% extends 'yotodo/base.html' %}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block header %}
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light mb-3">
+        <div class="container-fluid">
+            <span style="font-size: 24px;">YoToDo</span>
+        </div>
+        <div class="container-fluid">
+            <a class="navbar-brand ms-auto me-auto" href="{% url 'welcome' %}">На главную</a>
+        </div>
+        <div class="container-fluid">
+            <a id="logout-link" class="navbar-brand ms-auto" href="{% url 'logout' %}">Выйти</a>
+        </div>
+    </nav>
+</div>
+
+<div class="center-div">
+    <a class="btn-main btn-main-rounded" href="{% url 'main' %}">К актуальными задачам</a>
+</div>
+
+<div class="container-fluid">
+  <div class="row">
+      <div class="container">
+        <div class="mx-auto">
+            <div class="justify-content-center align-items-center max-w-md">
+                <p>Ваши выполненные задачи:</p>
+                {% if lentasks > 0 %}
+                {% for task in tasks %}
+                  <div class="card mb-3">
+                      <div class="card-header accordion-header d-flex justify-content-between align-items-center">
+                          <div style="flex-grow: 1;">Задача: {{ task.title }}</div>
+                          {% if task.lvl == 1 %}
+                              <div class="lvl-red marright">Высокая важность</div>
+                          {% elif task.lvl == 2 %}
+                              <div class="lvl-yel marright">Средняя важность</div>
+                          {% else %}
+                              <div class="lvl-gre marright">Низкая важность</div>
+                          {% endif %}
+                          <form method="post" action="{% url 'delete_task' task.pk %}">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-danger marright">Удалить</button>
+                          </form>
+                          <span class="arrow-down"></span>
+                      </div>
+                      <div class="card-body accordion-body question-input">
+                          <p>{{ task.description }}</p>
+                          <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center">
+                              <div class="status mb-3 mb-md-0">Задача добавлена: {{ task.created_at|date:'d.m.Y' }}</div>
+                              <div class="status mb-3 mb-md-0">Задача закончена: {{ task.end_at|date:'d.m.Y' }}</div>
+                              <div class="status mb-3 mb-md-0">Затрачено времени: {{ task.created_at|timesince:task.end_at }}</div>
+                              <form method="post" action="{% url 'back_task' task.pk %}">
+                                  {% csrf_token %}
+                                  <button type="submit" class="done-button btn btn-success">Вернуть задачу</button>
+                              </form>
+                          </div>
+                      </div>
+                  </div>
+                {% endfor %}
+                {% else %}
+                У вас пока нет выполненых задач
+                {% endif %}
+            </div>
+        </div>
+      </div>
+  </div>
+</div>
+
+<script type="text/javascript" src="{% static 'yotodo/js/acc.js' %}"></script>
+{% endblock %}
+
