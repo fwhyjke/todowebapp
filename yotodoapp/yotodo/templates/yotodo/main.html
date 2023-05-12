@@ -57,11 +57,11 @@
               <label class="form-label">Закрепить задачу?</label>
               <div class="mb-3">
                   <div class="form-check">
-                      <input class="form-check-input" type="radio" name="isfixed" id="yes" value="1">
+                      <input class="form-check-input" type="radio" name="isfixed" id="yes" value="True">
                       <label class="form-check-label" for="yes">Да</label>
                   </div>
                   <div class="form-check">
-                      <input class="form-check-input" type="radio" name="isfixed" id="no" value="0">
+                      <input class="form-check-input" type="radio" name="isfixed" id="no" value="False">
                       <label class="form-check-label" for="no">Нет</label>
                   </div>
               </div>
@@ -165,7 +165,7 @@
                 {% endif %}
                 {% endfor %}
                 {% else %}
-                у вас пока нет задач
+                У вас пока нет задач
                 {% endif %}
             </div>
         </div>

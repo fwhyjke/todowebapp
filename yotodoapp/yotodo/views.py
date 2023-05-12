@@ -53,7 +53,6 @@ class TasksHistoryView(LoginRequiredMixin, CreateView):
         context['title'] = 'YoToDo'
         context['tasks'] = ToDoIt.objects.filter(user=self.request.user.id, status=True).order_by('end_at')
         context['lentasks'] = len(context['tasks'])
-        print(context['lentasks'])
         return context
 
 
