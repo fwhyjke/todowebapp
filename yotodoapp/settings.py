@@ -49,6 +49,8 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+CSRF_COOKIE_SECURE = True
+CSRF_COOKIE_HTTPONLY = True
 ROOT_URLCONF = 'yotodoapp.urls'
 
 TEMPLATES = [
