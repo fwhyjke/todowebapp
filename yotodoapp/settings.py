@@ -52,6 +52,7 @@ MIDDLEWARE = [
 CSRF_COOKIE_SECURE = True
 CSRF_COOKIE_HTTPONLY = True
 ROOT_URLCONF = 'yotodoapp.urls'
+CSRF_TRUSTED_ORIGINS = ['https://*.todowebapp-production.up.railway.app','https://*.127.0.0.1']
 
 TEMPLATES = [
     {
