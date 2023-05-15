@@ -1,3 +1,7 @@
-To-Do List web-app (Django + PostgreSQL)
+To-Do List приложение на Django с PostgreSQL
+https://todowebapp-production.up.railway.app
 
--in developing-
+Это приложение To-Do List разработано на фреймворке Django и использует PostgreSQL в качестве базы данных.
+Приложение развернуто на Railway App.
+Реализована регистрация, аутентификация, CRUD и парочка фичей.
+В процессе разработка дополнительных функций, например - возможность добовлять пользователей в друзья и делиться задачами.
