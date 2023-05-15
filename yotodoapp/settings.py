@@ -78,11 +78,11 @@ DATABASES_URL = os.getenv("DATABASE_URL")
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': os.getenv("PGDATABASE"),
-        'USER': os.getenv("PGUSER"),
-        'PASSWORD': os.getenv("PGPASSWORD"),
-        'HOST': os.getenv("PGHOST"),
-        'PORT': os.getenv("PGPORT"),
+        'NAME': "railway",
+        'USER': "postgres",
+        'PASSWORD': "wVAdWwsS3N5yEWHbCgmU",
+        'HOST': "containers-us-west-158.railway.app",
+        'PORT': "5534",
     }
 }
 
