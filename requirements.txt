@@ -4,3 +4,4 @@ django-widget-tweaks==1.4.12
 gunicorn==20.1.0
 psycopg2-binary==2.9.6
 sqlparse==0.4.4
+whitenoise==6.4.0
