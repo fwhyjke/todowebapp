@@ -1,0 +1,19 @@
+.accordion {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.accordion-header {
+  background-color: #eee;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.accordion-body {
+  padding: 10px;
+  display: none;
+}
+
+.question-input {
+    display: none;
+}
