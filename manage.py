@@ -2,11 +2,12 @@
 """Django's command-line utility for administrative tasks."""
 import os
 import sys
+import yotodoapp.yotodoapp.settings
 
 
 def main():
     """Run administrative tasks."""
-    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'YotodoConfig.settings')
+    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'yotodoapp.yotodoapp.settings')
     try:
         from django.core.management import execute_from_command_line
     except ImportError as exc:
