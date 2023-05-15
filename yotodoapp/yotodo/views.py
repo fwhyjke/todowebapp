@@ -32,7 +32,6 @@ class MainPage(LoginRequiredMixin, CreateView):
         context['title'] = 'YoToDo'
         context['tasks'] = ToDoIt.objects.filter(user=self.request.user.id, status=False).order_by('lvl')
         context['lentasks'] = len(context['tasks'])
-        print(context['lentasks'])
         return context
 
 
