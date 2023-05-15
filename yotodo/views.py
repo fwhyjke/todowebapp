@@ -16,7 +16,7 @@ def welcomepage(request: HttpRequest):
 
 
 class MainPage(LoginRequiredMixin, CreateView):
-    login_url = 'login'
+    login_url = 'welcome'
     form_class = AddToDoIt
     template_name = 'yotodo/main.html'
     success_url = reverse_lazy('main')
