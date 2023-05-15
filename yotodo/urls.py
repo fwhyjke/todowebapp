@@ -1,4 +1,6 @@
+from django.conf.urls.static import static
 from django.urls import path
+from django.conf import settings
 from .views import *
 
 urlpatterns = [
@@ -14,3 +16,5 @@ urlpatterns = [
     path('back_task/<int:pk>/', BackTaskView.as_view(), name='back_task'),
     path('delete_task/<int:pk>/', DeleteTaskView.as_view(), name='delete_task')
 ]
+if settings.DEBUG:
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
